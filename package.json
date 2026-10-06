@@ -1,0 +1,15 @@
+{
+  "name": "terget",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:e2e": "node --test test/e2e/*.test.js",
+    "package": "node scripts/package.mjs",
+    "icons": "rsvg-convert -w 16 -h 16 store/icon-16.svg -o extension/icons/icon-16.png && for s in 32 48 96 128; do rsvg-convert -w $s -h $s store/icon.svg -o extension/icons/icon-$s.png; done && rsvg-convert -w 300 -h 300 store/icon.svg -o store/logo-300.png && rsvg-convert store/promo.svg -o store/promo-440x280.png"
+  },
+  "devDependencies": {
+    "selenium-webdriver": "^4.50.0"
+  }
+}

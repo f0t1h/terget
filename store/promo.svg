@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 440 280" width="440" height="280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20232a"/>
+      <stop offset="1" stop-color="#2d333b"/>
+    </linearGradient>
+  </defs>
+  <rect width="440" height="280" fill="url(#bg)"/>
+  <image x="36" y="76" width="128" height="128" xlink:href="icon.svg"/>
+  <text x="188" y="142" font-family="Menlo, monospace" font-weight="bold" font-size="54" fill="#f0f6fc">terget</text>
+  <text x="190" y="176" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#c9d1d9">Right-click a link, get a</text>
+  <text x="190" y="198" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#c9d1d9">curl / wget command that</text>
+  <text x="190" y="220" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#3fb950">downloads it logged in.</text>
+</svg>
