@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 13px system-ui, sans-serif; margin: 12px; max-width: 640px; }
+    fieldset { border: none; padding: 0; margin: 0 0 14px; }
+    legend { font-weight: 600; margin-bottom: 6px; padding: 0; }
+    label { display: block; margin: 4px 0; }
+    .extra { display: grid; grid-template-columns: 4em 1fr; gap: 6px 8px; align-items: center; }
+    .extra input { font: 12px ui-monospace, monospace; }
+    .hint { color: color-mix(in srgb, currentColor 60%, transparent); font-size: 12px; margin: 2px 0 6px 22px; }
+    .hint.flush { margin-left: 0; }
+    button { font: inherit; }
+    #welcome { border: 1px solid color-mix(in srgb, currentColor 25%, transparent); border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; }
+    #welcome h2 { font-size: 15px; margin: 0 0 6px; }
+    #welcome p { margin: 0 0 10px; }
+  </style>
+  <script type="module" src="options.js"></script>
+</head>
+<body>
+  <section id="welcome" hidden>
+    <h2>terget is installed</h2>
+    <p>Commands include your login cookies for the link's site, so downloads behind a login work in the terminal.
+      Allow access once here, or skip and terget will ask the first time you copy a link from each site.
+      Cookies are read only when you use the menu, and never leave your computer.</p>
+    <button id="welcome-allow" type="button">Allow on all sites</button>
+  </section>
+  <form id="form">
+    <fieldset>
+      <legend>Usage</legend>
+      <p class="hint flush">Right-click a link → <b>Copy download command</b> → curl, wget or axel.
+        The command goes to the clipboard and the toolbar button shows ✓, or ! with the reason on hover.</p>
+    </fieldset>
+    <fieldset>
+      <legend>Shell</legend>
+      <label><input type="radio" name="shell" value="posix"> sh, bash, zsh, fish (macOS, Linux)</label>
+      <label><input type="radio" name="shell" value="powershell"> PowerShell 7.3+ (Windows)</label>
+    </fieldset>
+    <fieldset>
+      <legend>Shell history</legend>
+      <label><input type="checkbox" name="hideFromHistory"> Start commands with a space to keep them out of shell history</label>
+      <p class="hint">Works with bash <code>HISTCONTROL=ignorespace</code> and zsh <code>setopt HIST_IGNORE_SPACE</code>; commands contain session cookies.</p>
+    </fieldset>
+    <fieldset>
+      <legend>Extra arguments</legend>
+      <div id="extra" class="extra"></div>
+      <p class="hint flush">Inserted unquoted before the URL, e.g. <code>-n 8</code> for axel or <code>-C -</code> for curl.</p>
+    </fieldset>
+    <fieldset>
+      <legend>Cookie access</legend>
+      <p class="hint flush">terget asks the first time you copy a link from a site, and reads that site's cookies only when you click the menu.</p>
+      <p id="access" class="hint flush"></p>
+      <button id="allow-all" type="button">Allow all sites (no more prompts)</button>
+      <button id="revoke" type="button">Remove access to all sites</button>
+    </fieldset>
+  </form>
+</body>
+</html>
